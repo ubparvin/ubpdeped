@@ -1,0 +1,244 @@
+<?php
+/**
+ * @var \App\View\AppView $this
+ * @var \App\Model\Entity\City $city
+ */
+?>
+<div class="row">
+    <aside class="column">
+        <div class="side-nav">
+            <h4 class="heading"><?= __('Actions') ?></h4>
+            <?= $this->Html->link(__('Edit City'), ['action' => 'edit', $city->id], ['class' => 'side-nav-item']) ?>
+            <?= $this->Form->postLink(__('Delete City'), ['action' => 'delete', $city->id], ['confirm' => __('Are you sure you want to delete # {0}?', $city->id), 'class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('List Cities'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('New City'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
+        </div>
+    </aside>
+    <div class="column-responsive column-80">
+        <div class="cities view content">
+            <h3><?= h($city->id) ?></h3>
+            <table>
+                <tr>
+                    <th><?= __('PsgcCode') ?></th>
+                    <td><?= h($city->psgcCode) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('RegDesc') ?></th>
+                    <td><?= h($city->regDesc) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('ProvCode') ?></th>
+                    <td><?= h($city->provCode) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('CitymunCode') ?></th>
+                    <td><?= h($city->citymunCode) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Id') ?></th>
+                    <td><?= $this->Number->format($city->id) ?></td>
+                </tr>
+            </table>
+            <div class="text">
+                <strong><?= __('CitymunDesc') ?></strong>
+                <blockquote>
+                    <?= $this->Text->autoParagraph(h($city->citymunDesc)); ?>
+                </blockquote>
+            </div>
+            <div class="related">
+                <h4><?= __('Related Offices') ?></h4>
+                <?php if (!empty($city->offices)) : ?>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th><?= __('Id') ?></th>
+                            <th><?= __('Name') ?></th>
+                            <th><?= __('Barangay Id') ?></th>
+                            <th><?= __('City Id') ?></th>
+                            <th><?= __('Province Id') ?></th>
+                            <th><?= __('Region Id') ?></th>
+                            <th><?= __('Address') ?></th>
+                            <th><?= __('Mobile No') ?></th>
+                            <th><?= __('Tel No') ?></th>
+                            <th><?= __('Contact Person') ?></th>
+                            <th><?= __('Added') ?></th>
+                            <th><?= __('Modified') ?></th>
+                            <th class="actions"><?= __('Actions') ?></th>
+                        </tr>
+                        <?php foreach ($city->offices as $offices) : ?>
+                        <tr>
+                            <td><?= h($offices->id) ?></td>
+                            <td><?= h($offices->name) ?></td>
+                            <td><?= h($offices->barangay_id) ?></td>
+                            <td><?= h($offices->city_id) ?></td>
+                            <td><?= h($offices->province_id) ?></td>
+                            <td><?= h($offices->region_id) ?></td>
+                            <td><?= h($offices->address) ?></td>
+                            <td><?= h($offices->mobile_no) ?></td>
+                            <td><?= h($offices->tel_no) ?></td>
+                            <td><?= h($offices->contact_person) ?></td>
+                            <td><?= h($offices->added) ?></td>
+                            <td><?= h($offices->modified) ?></td>
+                            <td class="actions">
+                                <?= $this->Html->link(__('View'), ['controller' => 'Offices', 'action' => 'view', $offices->id]) ?>
+                                <?= $this->Html->link(__('Edit'), ['controller' => 'Offices', 'action' => 'edit', $offices->id]) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Offices', 'action' => 'delete', $offices->id], ['confirm' => __('Are you sure you want to delete # {0}?', $offices->id)]) ?>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
+                <?php endif; ?>
+            </div>
+            <div class="related">
+                <h4><?= __('Related Schools') ?></h4>
+                <?php if (!empty($city->schools)) : ?>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th><?= __('Id') ?></th>
+                            <th><?= __('Name') ?></th>
+                            <th><?= __('Barangay Id') ?></th>
+                            <th><?= __('City Id') ?></th>
+                            <th><?= __('Province Id') ?></th>
+                            <th><?= __('Region Id') ?></th>
+                            <th><?= __('Address') ?></th>
+                            <th><?= __('Mobile No') ?></th>
+                            <th><?= __('Tel No') ?></th>
+                            <th><?= __('Contact Person') ?></th>
+                            <th><?= __('Added') ?></th>
+                            <th><?= __('Modified') ?></th>
+                            <th class="actions"><?= __('Actions') ?></th>
+                        </tr>
+                        <?php foreach ($city->schools as $schools) : ?>
+                        <tr>
+                            <td><?= h($schools->id) ?></td>
+                            <td><?= h($schools->name) ?></td>
+                            <td><?= h($schools->barangay_id) ?></td>
+                            <td><?= h($schools->city_id) ?></td>
+                            <td><?= h($schools->province_id) ?></td>
+                            <td><?= h($schools->region_id) ?></td>
+                            <td><?= h($schools->address) ?></td>
+                            <td><?= h($schools->mobile_no) ?></td>
+                            <td><?= h($schools->tel_no) ?></td>
+                            <td><?= h($schools->contact_person) ?></td>
+                            <td><?= h($schools->added) ?></td>
+                            <td><?= h($schools->modified) ?></td>
+                            <td class="actions">
+                                <?= $this->Html->link(__('View'), ['controller' => 'Schools', 'action' => 'view', $schools->id]) ?>
+                                <?= $this->Html->link(__('Edit'), ['controller' => 'Schools', 'action' => 'edit', $schools->id]) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Schools', 'action' => 'delete', $schools->id], ['confirm' => __('Are you sure you want to delete # {0}?', $schools->id)]) ?>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
+                <?php endif; ?>
+            </div>
+            <div class="related">
+                <h4><?= __('Related Users') ?></h4>
+                <?php if (!empty($city->users)) : ?>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th><?= __('Id') ?></th>
+                            <th><?= __('Group Id') ?></th>
+                            <th><?= __('Role Id') ?></th>
+                            <th><?= __('School Id') ?></th>
+                            <th><?= __('Office Id') ?></th>
+                            <th><?= __('Firstname') ?></th>
+                            <th><?= __('Middlename') ?></th>
+                            <th><?= __('Lastname') ?></th>
+                            <th><?= __('Email') ?></th>
+                            <th><?= __('Mobile No') ?></th>
+                            <th><?= __('Barangay Id') ?></th>
+                            <th><?= __('City Id') ?></th>
+                            <th><?= __('Region Id') ?></th>
+                            <th><?= __('Province Id') ?></th>
+                            <th><?= __('Address') ?></th>
+                            <th><?= __('Added') ?></th>
+                            <th><?= __('Modified') ?></th>
+                            <th><?= __('Last Access') ?></th>
+                            <th><?= __('Status') ?></th>
+                            <th class="actions"><?= __('Actions') ?></th>
+                        </tr>
+                        <?php foreach ($city->users as $users) : ?>
+                        <tr>
+                            <td><?= h($users->id) ?></td>
+                            <td><?= h($users->group_id) ?></td>
+                            <td><?= h($users->role_id) ?></td>
+                            <td><?= h($users->school_id) ?></td>
+                            <td><?= h($users->office_id) ?></td>
+                            <td><?= h($users->firstname) ?></td>
+                            <td><?= h($users->middlename) ?></td>
+                            <td><?= h($users->lastname) ?></td>
+                            <td><?= h($users->email) ?></td>
+                            <td><?= h($users->mobile_no) ?></td>
+                            <td><?= h($users->barangay_id) ?></td>
+                            <td><?= h($users->city_id) ?></td>
+                            <td><?= h($users->region_id) ?></td>
+                            <td><?= h($users->province_id) ?></td>
+                            <td><?= h($users->address) ?></td>
+                            <td><?= h($users->added) ?></td>
+                            <td><?= h($users->modified) ?></td>
+                            <td><?= h($users->last_access) ?></td>
+                            <td><?= h($users->status) ?></td>
+                            <td class="actions">
+                                <?= $this->Html->link(__('View'), ['controller' => 'Users', 'action' => 'view', $users->id]) ?>
+                                <?= $this->Html->link(__('Edit'), ['controller' => 'Users', 'action' => 'edit', $users->id]) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Users', 'action' => 'delete', $users->id], ['confirm' => __('Are you sure you want to delete # {0}?', $users->id)]) ?>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
+                <?php endif; ?>
+            </div>
+            <div class="related">
+                <h4><?= __('Related Vendors') ?></h4>
+                <?php if (!empty($city->vendors)) : ?>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th><?= __('Id') ?></th>
+                            <th><?= __('Name') ?></th>
+                            <th><?= __('Mobile No') ?></th>
+                            <th><?= __('Tel No') ?></th>
+                            <th><?= __('Contact Person') ?></th>
+                            <th><?= __('Barangay Id') ?></th>
+                            <th><?= __('City Id') ?></th>
+                            <th><?= __('Province Id') ?></th>
+                            <th><?= __('Region Id') ?></th>
+                            <th><?= __('Address') ?></th>
+                            <th><?= __('Added') ?></th>
+                            <th><?= __('Modified') ?></th>
+                            <th class="actions"><?= __('Actions') ?></th>
+                        </tr>
+                        <?php foreach ($city->vendors as $vendors) : ?>
+                        <tr>
+                            <td><?= h($vendors->id) ?></td>
+                            <td><?= h($vendors->name) ?></td>
+                            <td><?= h($vendors->mobile_no) ?></td>
+                            <td><?= h($vendors->tel_no) ?></td>
+                            <td><?= h($vendors->contact_person) ?></td>
+                            <td><?= h($vendors->barangay_id) ?></td>
+                            <td><?= h($vendors->city_id) ?></td>
+                            <td><?= h($vendors->province_id) ?></td>
+                            <td><?= h($vendors->region_id) ?></td>
+                            <td><?= h($vendors->address) ?></td>
+                            <td><?= h($vendors->added) ?></td>
+                            <td><?= h($vendors->modified) ?></td>
+                            <td class="actions">
+                                <?= $this->Html->link(__('View'), ['controller' => 'Vendors', 'action' => 'view', $vendors->id]) ?>
+                                <?= $this->Html->link(__('Edit'), ['controller' => 'Vendors', 'action' => 'edit', $vendors->id]) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Vendors', 'action' => 'delete', $vendors->id], ['confirm' => __('Are you sure you want to delete # {0}?', $vendors->id)]) ?>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>
